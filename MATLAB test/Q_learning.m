@@ -19,7 +19,7 @@ for episode = 1:numEpisodes
         Terminate = false;
         a = randi(numActions);
         pos = pos + actions(a,:);
-        if pos(1) < 1 || pos(1) > size(loc,1) || pos(2) < 1 || pos(2) > size(loc,2)
+        if pos(1) < 1 || pos(1) > n || pos(2) < 1 || pos(2) > m
             Q(s,a) = -10;
             %pos = [floor(s/n) + 1, mod(s,n)];
             %fprintf('while%d, s = %d, a = %d, pos = (%d,%d)\n', episode, s, a, pos(1), pos(2))
@@ -35,6 +35,7 @@ for episode = 1:numEpisodes
             R = 10;
             Terminate = true;
         end
+%         fprintf('s = %d, sp = %d\n', s, sp);
         Q(s,a) = Q(s,a) + alpha*(R + gama*max(Q(sp,:)) - Q(s,a));
         s = sp;
         if Terminate

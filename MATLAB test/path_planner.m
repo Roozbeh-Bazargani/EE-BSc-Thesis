@@ -12,6 +12,10 @@ path(1,:) = start_state;
 fprintf('step %d: position = (%d, %d)\n', i, pos(1), pos(2))
 while s ~= s_goal
     pos = pos + actions(policy(s),:);
+    if pos(1) < 1 || pos(1) > n || pos(2) < 1 || pos(2) > m
+        fprintf('Path denied!\n')
+        break
+    end
     s = (pos(1)-1)*n + pos(2);
     i = i + 1;
     fprintf('step %d: position = (%d, %d)\n', i, pos(1), pos(2))
