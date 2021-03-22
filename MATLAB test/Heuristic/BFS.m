@@ -48,7 +48,7 @@ while ~(s(1) == start_state(1) && s(2) == start_state(2))
     s = [mod(sp,m) ceil(sp/m)];
     i = i - 1;
     path(i,:) = s;
-    fprintf('s = (%d, %d)\n', s(1), s(2))
+    %fprintf('s = (%d, %d)\n', s(1), s(2))
 end
 
 [x, ~] = find(path==0);
