@@ -21,6 +21,10 @@ while s ~= s_goal
     fprintf('step %d: position = (%d, %d)\n', i, pos(1), pos(2))
     path(i,:) = pos;
 end
-    
+
+[x, ~] = find(path==0);
+path = path(1: x(1) - 1,:);
+
+
 end
 
