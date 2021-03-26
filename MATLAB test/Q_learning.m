@@ -8,13 +8,13 @@ actions = [0 1; 0 -1; 1 0; -1 0; -1 1; 1 1; -1 -1; 1 -1]; % direction of Actions
 numActions = size(actions,1);
 m = size(loc,1);
 n = size(loc,2);
-s_goal = (goal_state(1)-1)*m + goal_state(2);
-Q = -zeros(m*n, numActions);
+s_goal = (goal_state(2)-1)*m + goal_state(1);
+Q = zeros(m*n, numActions);
 % Q(s_goal,:) = 10;
 for episode = 1:numEpisodes
     pos = start_state;
 %     fprintf('%d, %d\n', pos(1), pos(2))
-    s = (pos(1)-1)*m + pos(2);
+    s = (pos(2)-1)*m + pos(1);
     while s ~= s_goal
         Terminate = false;
         a = randi(numActions);
@@ -25,7 +25,7 @@ for episode = 1:numEpisodes
             %fprintf('while%d, s = %d, a = %d, pos = (%d,%d)\n', episode, s, a, pos(1), pos(2))
             break
         end
-        sp = (pos(1)-1)*m + pos(2);
+        sp = (pos(2)-1)*m + pos(1);
         R = -norm(actions(a,:));
         if loc(round(pos(1)), round(pos(2))) == 1
             R = -10;

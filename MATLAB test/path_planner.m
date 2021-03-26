@@ -4,8 +4,8 @@ actions = [0 1; 0 -1; 1 0; -1 0; -1 1; 1 1; -1 -1; 1 -1]; % direction of Actions
 m = size(loc,1);
 n = size(loc,2);
 pos = start_state;
-s_goal = (goal_state(1)-1)*n + goal_state(2);
-s = (pos(1)-1)*n + pos(2);
+s_goal = (goal_state(2)-1)*m + goal_state(1);
+s = (pos(2)-1)*m + pos(1);
 i = 1;
 path = zeros(max(m,n), 2);
 path(1,:) = start_state;
@@ -16,7 +16,7 @@ while s ~= s_goal
         fprintf('Path denied!\n')
         break
     end
-    s = (pos(1)-1)*n + pos(2);
+    s = (pos(2)-1)*m + pos(1);
     i = i + 1;
     fprintf('step %d: position = (%d, %d)\n', i, pos(1), pos(2))
     path(i,:) = pos;
