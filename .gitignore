@@ -46,5 +46,6 @@ Thumbs.db
 *.slxc
 /Simulink/slprj/
 /Matlab test/slprj/
+/Matlab test/Heuristic/slprj/
 /Matlab test/carRRT_R.m
 *.asv
