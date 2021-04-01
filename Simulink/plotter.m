@@ -16,7 +16,8 @@ hold on
 plot(out.pos2.Data(:,1), out.pos2.Data(:,2), 'r');
 hold on
 plot(out.pos3.Data(:,1), out.pos3.Data(:,2), 'b');
-
+hold on
+plot(out.pos4.Data(:,1), out.pos4.Data(:,2), 'k');
 
 
 
