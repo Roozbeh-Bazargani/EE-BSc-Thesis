@@ -10,6 +10,7 @@ m = size(loc,1);
 n = size(loc,2);
 s_goal = (goal_state(2)-1)*m + goal_state(1);
 Q = zeros(m*n, numActions);
+% Pi = ones(m*n, numActions) / numActions;
 % Q(s_goal,:) = 10;
 for episode = 1:numEpisodes
     pos = start_state;
@@ -19,7 +20,7 @@ for episode = 1:numEpisodes
         Terminate = false;
         a = randi(numActions);
         pos = pos + actions(a,:);
-        if pos(1) < 1 || pos(1) > n || pos(2) < 1 || pos(2) > m
+        if pos(1) < 1 || pos(1) > m || pos(2) < 1 || pos(2) > n
             Q(s,a) = -10;
             %pos = [floor(s/n) + 1, mod(s,n)];
             %fprintf('while%d, s = %d, a = %d, pos = (%d,%d)\n', episode, s, a, pos(1), pos(2))
